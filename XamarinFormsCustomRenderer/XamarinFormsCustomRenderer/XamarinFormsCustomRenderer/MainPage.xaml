@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XamarinFormsCustomRenderer"
+             x:Class="XamarinFormsCustomRenderer.MainPage">
+    <StackLayout BackgroundColor="#03a9f4"
+                 HorizontalOptions="FillAndExpand"
+                 VerticalOptions="FillAndExpand"
+                 Padding="15, 15, 15, 15">
+        <Label Text="Welcome to Xamarin Forms!" 
+               TextColor="Black"
+               BackgroundColor="Transparent"
+               FontSize="18" 
+               HorizontalOptions="StartAndExpand" 
+               Margin="0, 15, 0, 15"/>
+
+        <Entry Placeholder="Welcome to naked OOTB entry." 
+               TextColor="Black"
+               BackgroundColor="Transparent"
+               PlaceholderColor="Gray"
+               FontSize="18" 
+               HorizontalOptions="StartAndExpand" 
+               Margin="0, 15, 0, 15"/>
+
+        <Entry Placeholder="Welcome to customized beauty entry." 
+               TextColor="Black"
+               BackgroundColor="Transparent"
+               PlaceholderColor="Gray"
+               FontSize="18" 
+               HorizontalOptions="StartAndExpand" 
+               Margin="0, 15, 0, 15"/>
+    </StackLayout>
+</ContentPage>
