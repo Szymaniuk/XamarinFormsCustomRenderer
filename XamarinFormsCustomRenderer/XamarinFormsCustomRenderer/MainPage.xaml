@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:XamarinFormsCustomRenderer"
+             xmlns:renderers="clr-namespace:XamarinFormsCustomRenderer.Renderers;assembly=XamarinFormsCustomRenderer"
              x:Class="XamarinFormsCustomRenderer.MainPage">
     <StackLayout BackgroundColor="#03a9f4"
                  HorizontalOptions="FillAndExpand"
@@ -22,12 +23,16 @@
                HorizontalOptions="StartAndExpand" 
                Margin="0, 15, 0, 15"/>
 
-        <Entry Placeholder="Welcome to customized beauty entry." 
-               TextColor="Black"
-               BackgroundColor="Transparent"
-               PlaceholderColor="Gray"
-               FontSize="18" 
-               HorizontalOptions="StartAndExpand" 
-               Margin="0, 15, 0, 15"/>
+        <renderers:BorderedEntry Placeholder="Welcome to customized beauty entry." 
+                                 TextColor="Black"
+                                 BackgroundColor="Transparent"
+                                 PlaceholderColor="Gray"
+                                 FontSize="18" 
+                                 HorizontalOptions="StartAndExpand" 
+                                 HasBorder="True"
+                                 BorderColor="Gray"
+                                 BorderColorActive="Black"
+                                 BorderHeight="2"
+                                 Margin="0, 15, 0, 15"/>
     </StackLayout>
 </ContentPage>
