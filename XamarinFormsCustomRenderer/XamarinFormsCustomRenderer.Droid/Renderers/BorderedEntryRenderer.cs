@@ -22,32 +22,23 @@ namespace XamarinFormsCustomRenderer.Droid.Renderers
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
             base.OnElementChanged(e);
-
             if (Control == null || Element == null) return;
-
             var element = (BorderedEntry)Element;
-
             UpdateProperties(element);
-
             if (!_hasBorder)
             {
                 UpdateTransparentBorderColor();
             }
-
             _border = new BorderedDrawable(_borderColor, _borderHeight);
             Control.Background = _border;
-
             Control.FocusChange += Control_FocusChange;
         }
 
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             base.OnElementPropertyChanged(sender, e);
-
             if (sender == null) return;
-
             var element = (BorderedEntry)sender;
-
             UpdateProperties(element);
             UpdateBorderColor();
         }
@@ -55,7 +46,6 @@ namespace XamarinFormsCustomRenderer.Droid.Renderers
         private void Control_FocusChange(object sender, View.FocusChangeEventArgs e)
         {
             if (e == null) return;
-
             UpdateFocus(e.HasFocus);
             UpdateBorderColor();
         }
@@ -88,5 +78,4 @@ namespace XamarinFormsCustomRenderer.Droid.Renderers
             _borderColorActive = Color.Transparent;
         }
     }
-
 }

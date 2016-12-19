@@ -4,8 +4,10 @@ using CoreGraphics;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
+using XamarinFormsCustomRenderer.iOS.Renderers;
 using XamarinFormsCustomRenderer.Renderers;
 
+[assembly: ExportRenderer(typeof(BorderedEntry), typeof(BorderedEntryRenderer))]
 namespace XamarinFormsCustomRenderer.iOS.Renderers
 {
     public class BorderedEntryRenderer : EntryRenderer
@@ -21,15 +23,11 @@ namespace XamarinFormsCustomRenderer.iOS.Renderers
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
             base.OnElementChanged(e);
-
             if (Control == null || Element == null) return;
-
             var element = (BorderedEntry)Element;
-
             UpdateProperties(element);
             Control.BackgroundColor = UIColor.Clear;
             Control.BorderStyle = UITextBorderStyle.None;
-
             Control.Started += Control_Started;
             Control.Ended += Control_Ended;
         }
@@ -37,11 +35,8 @@ namespace XamarinFormsCustomRenderer.iOS.Renderers
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             base.OnElementPropertyChanged(sender, e);
-
             if (sender == null) return;
-
             var element = (BorderedEntry)sender;
-
             UpdateProperties(element);
             UpdateBorderColor();
         }
@@ -49,14 +44,11 @@ namespace XamarinFormsCustomRenderer.iOS.Renderers
         public override void LayoutSubviews()
         {
             base.LayoutSubviews();
-
             if (Layer == null) return;
-
             if (!_hasBorder)
             {
                 UpdateTransparentBorderColor();
             }
-
             _border = new BorderedLayer(_borderColor, _borderHeight, Frame.Size.Height, Frame.Size.Width);
             if (_borderLayerIndex == null)
             {
