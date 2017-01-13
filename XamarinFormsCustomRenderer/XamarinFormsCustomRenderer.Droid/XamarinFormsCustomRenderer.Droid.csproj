@@ -112,10 +112,12 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Renderers\BorderedDrawable.cs" />
     <Compile Include="Renderers\BorderedEntryRenderer.cs" />
+    <Compile Include="Renderers\FontAwesomeLabelRenderer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\Fonts\FontAwesome.ttf" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />

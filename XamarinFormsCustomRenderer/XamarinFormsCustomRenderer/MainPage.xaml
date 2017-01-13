@@ -4,7 +4,22 @@
              xmlns:local="clr-namespace:XamarinFormsCustomRenderer"
              xmlns:renderers="clr-namespace:XamarinFormsCustomRenderer.Renderers;assembly=XamarinFormsCustomRenderer"
              x:Class="XamarinFormsCustomRenderer.MainPage">
-    <StackLayout BackgroundColor="#03a9f4"
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:InvertBooleanConverter x:Key="InvertBooleanConverter" />
+
+            <!-- Checked Icon -->
+            <x:String x:Key="CheckedIcon">&#xf14a;</x:String>
+            <!-- Unchecked Icon -->
+            <x:String x:Key="UncheckedIcon">&#xf096;</x:String>
+
+            <!-- Activated Color -->
+            <Color x:Key="ActivatedColor">#03a9f4</Color>
+            <!-- Deactivated Color -->
+            <Color x:Key="DeactivatedColor">#b6b6b6</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout BackgroundColor="White"
                  HorizontalOptions="FillAndExpand"
                  VerticalOptions="FillAndExpand"
                  Padding="15, 15, 15, 15">
@@ -34,5 +49,47 @@
                                  BorderColorActive="Black"
                                  BorderHeight="2"
                                  Margin="0, 15, 0, 15"/>
+
+        <Label Text="CheckBox 1 - normal (IsReadOnly = false):"/>
+        <renderers:FontAwesomeLabel IsEnabled="{Binding IsReadOnly1, Converter={StaticResource InvertBooleanConverter}}">
+            <renderers:FontAwesomeLabel.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding OnCheckBoxTapped1}"></TapGestureRecognizer>
+            </renderers:FontAwesomeLabel.GestureRecognizers>
+            <renderers:FontAwesomeLabel.Triggers>
+                <DataTrigger TargetType="renderers:FontAwesomeLabel" Binding="{Binding IsChecked1}" Value="True">
+                    <Setter Property="Text" Value="{StaticResource CheckedIcon}" />
+                </DataTrigger>
+                <DataTrigger TargetType="renderers:FontAwesomeLabel" Binding="{Binding IsChecked1}" Value="False">
+                    <Setter Property="Text" Value="{StaticResource UncheckedIcon}" />
+                </DataTrigger>
+                <DataTrigger TargetType="renderers:FontAwesomeLabel" Binding="{Binding IsReadOnly1}" Value="True">
+                    <Setter Property="TextColor" Value="{StaticResource DeactivatedColor}" />
+                </DataTrigger>
+                <DataTrigger TargetType="renderers:FontAwesomeLabel" Binding="{Binding IsReadOnly1}" Value="False">
+                    <Setter Property="TextColor" Value="{StaticResource ActivatedColor}" />
+                </DataTrigger>
+            </renderers:FontAwesomeLabel.Triggers>
+        </renderers:FontAwesomeLabel>
+
+        <Label Text="CheckBox 2 - readonly (IsReadOnly = true):"/>
+        <renderers:FontAwesomeLabel IsEnabled="{Binding IsReadOnly2, Converter={StaticResource InvertBooleanConverter}}">
+            <renderers:FontAwesomeLabel.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding OnCheckBoxTapped2}"></TapGestureRecognizer>
+            </renderers:FontAwesomeLabel.GestureRecognizers>
+            <renderers:FontAwesomeLabel.Triggers>
+                <DataTrigger TargetType="renderers:FontAwesomeLabel" Binding="{Binding IsChecked2}" Value="True">
+                    <Setter Property="Text" Value="{StaticResource CheckedIcon}" />
+                </DataTrigger>
+                <DataTrigger TargetType="renderers:FontAwesomeLabel" Binding="{Binding IsChecked2}" Value="False">
+                    <Setter Property="Text" Value="{StaticResource UncheckedIcon}" />
+                </DataTrigger>
+                <DataTrigger TargetType="renderers:FontAwesomeLabel" Binding="{Binding IsReadOnly2}" Value="True">
+                    <Setter Property="TextColor" Value="{StaticResource DeactivatedColor}" />
+                </DataTrigger>
+                <DataTrigger TargetType="renderers:FontAwesomeLabel" Binding="{Binding IsReadOnly2}" Value="False">
+                    <Setter Property="TextColor" Value="{StaticResource ActivatedColor}" />
+                </DataTrigger>
+            </renderers:FontAwesomeLabel.Triggers>
+        </renderers:FontAwesomeLabel>
     </StackLayout>
 </ContentPage>
