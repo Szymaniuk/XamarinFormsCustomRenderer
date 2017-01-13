@@ -92,6 +92,7 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Renderers\BorderedEntryRenderer.cs" />
     <Compile Include="Renderers\BorderedLayer.cs" />
+    <Compile Include="Renderers\LocaleAwareRadCalendarRenderer.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
